@@ -21,3 +21,9 @@ W pełni funkcjonalny silnik szachowy napisany w 100% w bazie danych PostgreSQL 
 3. Stwórz nową grę za pomocą zapytania:
    ```sql
    SELECT utworz_nowa_gre('Gracz 1', 'Gracz 2');
+4. Wykonuj ruchy, podając ID gry oraz współrzędne startowe i docelowe:
+   ```sql
+   SELECT wykonaj_ruch(1, 'e2', 'e4');
+5. Podglądaj sytuację na planszy na żywo:
+    ```sql
+   SELECT * FROM v_podglad_planszy; 
