@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  chess_db:
+    image: postgres:16
+    container_name: chess_db_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: superhaslo123
+      POSTGRES_DB: szachy
+    ports:
+      - "5433:5432"
+    volumes:
+      # ZMIANA: Nowa, unikalna nazwa miejsca na dysku dla danych
+      - chess_pg_data:/var/lib/postgresql/data
+      # FOLDER STARTOWY: O tym rozmawialiśmy wcześniej
+      - ./init-scripts:/docker-entrypoint-initdb.d
+
+volumes:
+  chess_pg_data:
